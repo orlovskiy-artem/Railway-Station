@@ -3,14 +3,13 @@ package com.kpi.railwaystation.SQLBuilder.postgres.modelStatementBuilders;
 import com.kpi.railwaystation.SQLBuilder.postgres.SqlStatementBuilder;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class SeatSqlStatementBuilder implements SqlStatementBuilder {
 
     @Override
     public String getCreateStatement() {
-        return "INSERT INTO seat (id, type, card_id)" +
-                "VALUES (?, ?, ?)";
+        return "INSERT INTO seat (type, card_id)" +
+                "VALUES (?, ?)";
     }
 
     @Override
@@ -19,12 +18,10 @@ public class SeatSqlStatementBuilder implements SqlStatementBuilder {
     }
 
     @Override
-    public String getUpdateStatement(HashMap<String, String> columnName2value, String identifier) {
+    public String getUpdateStatement(HashMap<String, Object> columnName2value, String identifier) {
         StringBuilder updateValue = new StringBuilder();
-        for(Map.Entry<String,String> entry : columnName2value.entrySet()){
-            String key = entry.getKey();
-            String value = entry.getValue();
-            updateValue.append(key).append(" = ").append(value).append("\n");
+        for(String key: columnName2value.keySet()){
+            updateValue.append(key).append("=").append("(?)").append("\n");
         }
         return "UPDATE seat SET " + updateValue + "WHERE id=" + identifier;
     }

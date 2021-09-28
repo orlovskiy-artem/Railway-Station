@@ -5,6 +5,6 @@ import java.util.HashMap;
 public interface SqlStatementBuilder {
     String getCreateStatement();
     String getReadStatement(String valueIdentifier);
-    String getUpdateStatement(HashMap<String,String> columnName2value, String identifier);
+    String getUpdateStatement(HashMap<String, Object> columnName2value, String identifier);
     String getDeleteStatement(String valueIdentifier);
 }
