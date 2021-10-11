@@ -9,5 +9,4 @@ public interface SeatDao {
     public Seat readSeat();
     public Seat updateSeat();
     public Seat deleteSeat();
-    public void closeConnection() throws SQLException;
 }
