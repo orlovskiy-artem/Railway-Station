@@ -1,10 +1,9 @@
 package com.kpi.railwaystation.servlets;
 
-import com.kpi.railwaystation.DAO.CustomerDAO;
-import com.kpi.railwaystation.DAO.impl.postgres.PostgresCustomerDAO;
-import com.kpi.railwaystation.Factory.DAOFactory;
-import com.kpi.railwaystation.Factory.PostgreSQLFactory;
-import com.kpi.railwaystation.model.Customer;
+import com.kpi.railwaystation.dao.CustomerDao;
+import com.kpi.railwaystation.dao.impl.postgres.PostgresCustomerDao;
+import com.kpi.railwaystation.factory.DaoFactory;
+import com.kpi.railwaystation.factory.PostgreSQLFactory;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "PostCustomerServlet", value = "/post-customer")
 public class PostCustomerServlet extends HttpServlet {
 
-    PostgresCustomerDAO postgresCustomerDAO;
+    PostgresCustomerDao postgresCustomerDAO;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/postcustomer.jsp").forward(request, response);
@@ -28,10 +27,10 @@ public class PostCustomerServlet extends HttpServlet {
             String lastName = request.getParameter("lastName");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            PostgreSQLFactory postgreSQLFactory = (PostgreSQLFactory) DAOFactory.getDAOFactory(1);
+            PostgreSQLFactory postgreSQLFactory = (PostgreSQLFactory) DaoFactory.getDAOFactory(1);
             postgreSQLFactory.createConnection();
-            CustomerDAO customerDAO = postgreSQLFactory.getCustomerDAO();
-            customerDAO.createCustomer(
+            CustomerDao customerDao = postgreSQLFactory.getCustomerDao();
+            customerDao.createCustomer(
                     firstName,
                     lastName,
                     email,

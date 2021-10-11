@@ -1,4 +1,4 @@
-package com.kpi.railwaystation.SQLBuilder.postgres;
+package com.kpi.railwaystation.sqlBuilder.postgres;
 
 import java.util.HashMap;
 

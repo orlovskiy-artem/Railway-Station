@@ -1,6 +1,6 @@
-package com.kpi.railwaystation.SQLBuilder.postgres.modelStatementBuilders;
+package com.kpi.railwaystation.sqlBuilder.postgres.modelStatementBuilders;
 
-import com.kpi.railwaystation.SQLBuilder.postgres.SqlStatementBuilder;
+import com.kpi.railwaystation.sqlBuilder.postgres.SqlStatementBuilder;
 
 import java.util.HashMap;
 

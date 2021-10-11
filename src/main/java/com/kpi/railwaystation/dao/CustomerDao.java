@@ -1,11 +1,9 @@
-package com.kpi.railwaystation.DAO;
-
-import com.kpi.railwaystation.model.Customer;
+package com.kpi.railwaystation.dao;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 
-public interface CustomerDAO extends DAO{
+public interface CustomerDao {
     void createCustomer(String firstName, String lastName,
                         String email, String password, Integer roleId) throws SQLException;
 

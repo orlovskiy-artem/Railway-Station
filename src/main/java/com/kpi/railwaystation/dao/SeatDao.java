@@ -1,10 +1,10 @@
-package com.kpi.railwaystation.DAO;
+package com.kpi.railwaystation.dao;
 
 import com.kpi.railwaystation.model.Seat;
 
 import java.sql.SQLException;
 
-public interface SeatDAO {
+public interface SeatDao {
     public Seat createSeat();
     public Seat readSeat();
     public Seat updateSeat();

@@ -1,10 +1,8 @@
-package com.kpi.railwaystation.DAO;
+package com.kpi.railwaystation.dao;
 
 import com.kpi.railwaystation.model.Platform;
 
-import java.sql.SQLException;
-
-public interface PlatformDAO extends DAO {
+public interface PlatformDao {
     public Platform createPlatform();
     public Platform readPlatform();
     public Platform updatePlatform();

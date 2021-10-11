@@ -1,16 +1,15 @@
-package com.kpi.railwaystation.DAO.impl.postgres;
+package com.kpi.railwaystation.dao.impl.postgres;
 
-import com.kpi.railwaystation.DAO.PlatformDAO;
-import com.kpi.railwaystation.db.ConnectionPool;
+import com.kpi.railwaystation.dao.PlatformDao;
 import com.kpi.railwaystation.model.Platform;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class PostgresPlatformDAO implements PlatformDAO {
+public class PostgresPlatformDao implements PlatformDao {
     private Connection connection;
 
-    public PostgresPlatformDAO(Connection connection){
+    public PostgresPlatformDao(Connection connection){
         this.connection = connection;
     }
     @Override
@@ -33,7 +32,6 @@ public class PostgresPlatformDAO implements PlatformDAO {
         return null;
     }
 
-    @Override
     public void closeConnection() throws SQLException {
         connection.close();
     }

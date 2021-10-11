@@ -1,40 +1,39 @@
-package com.kpi.railwaystation.DAO.impl.postgres;
+package com.kpi.railwaystation.dao.impl.postgres;
 
-import com.kpi.railwaystation.DAO.SeatDAO;
-import com.kpi.railwaystation.model.Seat;
+import com.kpi.railwaystation.dao.OrderDao;
+import com.kpi.railwaystation.model.Order;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class PostgresSeatDAO implements SeatDAO {
+public class PostgresOrderDao implements OrderDao {
     private Connection connection;
 
-    public PostgresSeatDAO(Connection connection){
+    public PostgresOrderDao(java.sql.Connection connection){
         this.connection = connection;
     }
 
     @Override
-    public Seat createSeat() {
+    public Order createOrder() {
         return null;
     }
 
     @Override
-    public Seat readSeat() {
+    public Order readOrder() {
         return null;
     }
 
     @Override
-    public Seat updateSeat() {
+    public Order updateOrder() {
         return null;
     }
 
     @Override
-    public Seat deleteSeat() {
+    public Order deleteOrder() {
         return null;
     }
-
-    @Override
     public void closeConnection() throws SQLException {
         connection.close();
     }
+
 }

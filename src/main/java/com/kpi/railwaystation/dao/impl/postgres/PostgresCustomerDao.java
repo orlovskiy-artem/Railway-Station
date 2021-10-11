@@ -1,7 +1,7 @@
-package com.kpi.railwaystation.DAO.impl.postgres;
+package com.kpi.railwaystation.dao.impl.postgres;
 
-import com.kpi.railwaystation.DAO.CustomerDAO;
-import com.kpi.railwaystation.SQLBuilder.postgres.modelStatementBuilders.CustomerSqlStatementBuilder;
+import com.kpi.railwaystation.dao.CustomerDao;
+import com.kpi.railwaystation.sqlBuilder.postgres.modelStatementBuilders.CustomerSqlStatementBuilder;
 import com.kpi.railwaystation.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,13 +10,13 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PostgresCustomerDAO implements CustomerDAO {
+public class PostgresCustomerDao implements CustomerDao {
 
     private Connection connection;
     private static final CustomerSqlStatementBuilder customerSqlStatementBuilder = new CustomerSqlStatementBuilder();
-    private static final Logger LOGGER = LoggerFactory.getLogger(PostgresCustomerDAO.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PostgresCustomerDao.class);
 
-    public PostgresCustomerDAO(Connection connection){
+    public PostgresCustomerDao(Connection connection){
         this.connection = connection;
     }
 
@@ -65,7 +65,7 @@ public class PostgresCustomerDAO implements CustomerDAO {
         for(Map.Entry<String,Object> colName2value: columnsNames2values.entrySet()){
             String key = colName2value.getKey();
             Object value = colName2value.getValue();
-            if(value instanceof String) {
+            if(value instanceof String ) {
                 preparedStatement.setString(index, (String) value);
             } else if (value instanceof Integer) {
                 preparedStatement.setInt(index, (Integer) value);
@@ -85,7 +85,6 @@ public class PostgresCustomerDAO implements CustomerDAO {
         preparedStatement.close();
     }
 
-    @Override
     public void closeConnection() throws SQLException {
         connection.close();
     }

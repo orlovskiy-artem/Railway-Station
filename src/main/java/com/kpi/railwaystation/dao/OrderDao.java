@@ -1,10 +1,8 @@
-package com.kpi.railwaystation.DAO;
+package com.kpi.railwaystation.dao;
 
 import com.kpi.railwaystation.model.Order;
 
-import java.sql.SQLException;
-
-public interface OrderDAO extends DAO{
+public interface OrderDao {
     public Order createOrder();
     public Order readOrder();
     public Order updateOrder();
