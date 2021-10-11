@@ -32,8 +32,4 @@ public class PostgresOrderDao implements OrderDao {
     public Order deleteOrder() {
         return null;
     }
-    public void closeConnection() throws SQLException {
-        connection.close();
-    }
-
 }
