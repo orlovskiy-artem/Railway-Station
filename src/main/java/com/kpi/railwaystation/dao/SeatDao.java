@@ -3,10 +3,13 @@ package com.kpi.railwaystation.dao;
 import com.kpi.railwaystation.model.Seat;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface SeatDao {
-    public Seat createSeat();
+    public void createSeat();
     public Seat readSeat();
-    public Seat updateSeat();
-    public Seat deleteSeat();
+    public void updateSeat();
+    public void deleteSeat();
+
+    public List<Seat> getSeatsOfTrain(Integer trainId);
 }
