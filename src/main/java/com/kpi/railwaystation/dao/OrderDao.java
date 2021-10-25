@@ -1,12 +1,12 @@
 package com.kpi.railwaystation.dao;
 
-import com.kpi.railwaystation.model.Order;
+import com.kpi.railwaystation.model.Ticket;
 
 import java.sql.SQLException;
 
 public interface OrderDao {
-    public Order createOrder() throws SQLException;
-    public Order readOrder()  throws SQLException;
-    public Order updateOrder() throws SQLException;
-    public Order deleteOrder() throws SQLException;
+    public Ticket createOrder() throws SQLException;
+    public Ticket readOrder()  throws SQLException;
+    public Ticket updateOrder() throws SQLException;
+    public Ticket deleteOrder() throws SQLException;
 }

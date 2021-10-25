@@ -1,35 +1,34 @@
 package com.kpi.railwaystation.dao.impl.postgres;
 
 import com.kpi.railwaystation.dao.OrderDao;
-import com.kpi.railwaystation.model.Order;
+import com.kpi.railwaystation.model.Ticket;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
-public class PostgresOrderDao implements OrderDao {
+public class PostgresTicketDao implements OrderDao {
     private Connection connection;
 
-    public PostgresOrderDao(java.sql.Connection connection){
+    public PostgresTicketDao(java.sql.Connection connection){
         this.connection = connection;
     }
 
     @Override
-    public Order createOrder() {
+    public Ticket createOrder() {
         return null;
     }
 
     @Override
-    public Order readOrder() {
+    public Ticket readOrder() {
         return null;
     }
 
     @Override
-    public Order updateOrder() {
+    public Ticket updateOrder() {
         return null;
     }
 
     @Override
-    public Order deleteOrder() {
+    public Ticket deleteOrder() {
         return null;
     }
 }
