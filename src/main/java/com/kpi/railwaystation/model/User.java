@@ -9,9 +9,11 @@ import java.io.Serializable;
 @Data
 @Builder
 @NonNull
-public class Cart implements Serializable {
+public class User implements Serializable {
     private Integer id;
-    private String name;
-    private String type;
-    private Integer trainId;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private Integer roleId;
 }

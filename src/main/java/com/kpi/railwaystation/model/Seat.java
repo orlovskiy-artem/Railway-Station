@@ -10,5 +10,5 @@ import lombok.NonNull;
 public class Seat {
     private Integer id;
     private String type;
-    private Integer cartId;
+    private Integer trainId;
 }

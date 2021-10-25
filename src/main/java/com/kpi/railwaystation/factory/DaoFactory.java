@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public abstract class DaoFactory {
     public static final int POSTGRES = 1;
 
-    public abstract CustomerDao getCustomerDao() throws SQLException, IOException;
+    public abstract UserDao getCustomerDao() throws SQLException, IOException;
     public abstract OrderDao getOrderDao() throws SQLException, IOException;
     public abstract PlatformDao getPlatformDao() throws SQLException, IOException;
     public abstract SeatDao getSeatDao() throws SQLException, IOException;

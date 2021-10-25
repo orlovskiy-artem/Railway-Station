@@ -16,13 +16,13 @@ public class PostgreSQLFactory extends DaoFactory {
     }
 
     @Override
-    public PostgresCustomerDao getCustomerDao() throws SQLException, IOException {
-        return new PostgresCustomerDao(createConnection());
+    public PostgresUserDao getCustomerDao() throws SQLException, IOException {
+        return new PostgresUserDao(createConnection());
     }
 
     @Override
-    public PostgresOrderDao getOrderDao() throws SQLException, IOException {
-        return new PostgresOrderDao(createConnection());
+    public PostgresTicketDao getOrderDao() throws SQLException, IOException {
+        return new PostgresTicketDao(createConnection());
     }
 
     @Override

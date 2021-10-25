@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS roles(
     role VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS customer (
+CREATE TABLE IF NOT EXISTS "user" (
     id SERIAL NOT NULL PRIMARY KEY ,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
@@ -25,40 +25,50 @@ CREATE TABLE IF NOT EXISTS train (
     type VARCHAR (50) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS cart (
+-- CREATE TABLE IF NOT EXISTS cart (
+--     id SERIAL NOT NULL PRIMARY KEY,
+--     name VARCHAR (50) NOT NULL,
+--     type VARCHAR (50) NOT NULL,
+--     train_id INTEGER NOT NULL,
+--     FOREIGN KEY (train_id) REFERENCES train (id)
+-- );
+
+CREATE TABLE IF NOT EXISTS seat (
     id SERIAL NOT NULL PRIMARY KEY,
-    name VARCHAR (50) NOT NULL,
     type VARCHAR (50) NOT NULL,
     train_id INTEGER NOT NULL,
     FOREIGN KEY (train_id) REFERENCES train (id)
 );
 
-CREATE TABLE IF NOT EXISTS seat (
+CREATE TABLE IF NOT EXISTS ticket (
     id SERIAL NOT NULL PRIMARY KEY,
-    type VARCHAR (50) NOT NULL,
-    cart_id INTEGER NOT NULL,
-    FOREIGN KEY (cart_id) REFERENCES cart (id)
+    user_id INTEGER NOT NULL,
+    price money NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES "user" (id)
 );
 
-CREATE TABLE IF NOT EXISTS "order" (
+CREATE TABLE IF NOT EXISTS route(
     id SERIAL NOT NULL PRIMARY KEY,
-    customer_id INTEGER NOT NULL,
-    price money NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customer (id)
+    departure_platform_id INTEGER NOT NULL,
+    arrival_platform_id INTEGER NOT NULL,
+    train_id INTEGER NOT NULL,
+    departure_datetime TIMESTAMP NOT NULL,
+    arrival_datetime TIMESTAMP  NOT NULL,
+    FOREIGN KEY (departure_platform_id) REFERENCES platform (id),
+    FOREIGN KEY (arrival_platform_id) REFERENCES platform (id),
+    FOREIGN KEY (train_id) REFERENCES train (id)
 );
+
 
 CREATE TABLE IF NOT EXISTS order_details (
-    order_id INTEGER NOT NULL REFERENCES "order" (id),
-    train_id INTEGER NOT NULL REFERENCES train (id),
-    cart_id INTEGER NOT NULL REFERENCES cart (id),
-    seat_id INTEGER NOT NULL REFERENCES seat (id),
-    platform_id INTEGER NOT NULL REFERENCES platform (id),
-    landing_date DATE,
-    arrival_date DATE
+    ticket_id INTEGER NOT NULL REFERENCES ticket (id) ON DELETE CASCADE,
+    route_id INTEGER NOT NULL REFERENCES route (id) ON DELETE RESTRICT,
+    seat_id INTEGER NOT NULL REFERENCES seat (id)  ON DELETE RESTRICT
 );
+
 
 CREATE TABLE IF NOT EXISTS cities_distances (
     platform_id_1 INTEGER NOT NULL REFERENCES platform (id),
     platform_id_2 INTEGER NOT NULL REFERENCES platform (id),
     distance INTEGER NOT NULL
-)
+);

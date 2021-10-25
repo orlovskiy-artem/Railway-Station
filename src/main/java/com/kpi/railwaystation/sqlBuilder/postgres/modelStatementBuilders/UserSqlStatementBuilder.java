@@ -4,7 +4,7 @@ import com.kpi.railwaystation.sqlBuilder.postgres.SqlStatementBuilder;
 
 import java.util.HashMap;
 
-public class CustomerSqlStatementBuilder  implements SqlStatementBuilder {
+public class UserSqlStatementBuilder implements SqlStatementBuilder {
 
     @Override
     public String getCreateStatement() {

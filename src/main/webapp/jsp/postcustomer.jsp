@@ -11,7 +11,7 @@
     <title>CustomerForm</title>
 </head>
 <body>
-<form action="post-customer" method="POST">
+<form action="post-user" method="POST">
   Firstname: <input name="firstName" />
   <br><br>
   Lastname: <input name="lastName" />
